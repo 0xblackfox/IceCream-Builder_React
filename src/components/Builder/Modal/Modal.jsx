@@ -2,19 +2,20 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './Modal.module.css';
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
   return (
-    <div>
-      <div className={classes.backdrop} />
+    <>
+      <div className={classes.backdrop} onClick={onClose} />
       <div className={classes.modalBody}>
         {children}
       </div>
-    </div>
+      </>
   );
 };
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired, 
 };
 
 export default Modal;
